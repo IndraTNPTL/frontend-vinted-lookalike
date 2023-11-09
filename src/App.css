@@ -1,0 +1,38 @@
+:root {
+  --header-height: 5rem;
+  --footer-height: 4rem;
+  --main-height: calc(100vh - var(--header-height) - var(--footer-height));
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+}
+
+header {
+  border: 1px solid red;
+  height: var(--header-height);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main {
+  border: 1px solid blue;
+  height: var(--main-height);
+}
+
+footer {
+  border: 1px solid green;
+  height: var(--footer-height);
+}
