@@ -1,0 +1,66 @@
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
+
+const Home = ({ noUserImg }) => {
+  const [data, setData] = useState();
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          "https://lereacteur-vinted-api.herokuapp.com/offers"
+        );
+        setData(response.data);
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error.response);
+      }
+    };
+    fetchData();
+  }, []);
+
+  return isLoading ? (
+    <span>Your Vinted lookalike is loading... ⏳</span>
+  ) : (
+    <main className="container">
+      <section className="cards-container">
+        {data.offers.map((offer) => {
+          return (
+            <Link to={`/offers/${offer._id}`} key={offer._id}>
+              <article className="card">
+                <div className="card-user">
+                  {offer.owner.account.avatar ? (
+                    <img
+                      src={offer.owner.account.avatar.secure_url}
+                      alt={offer.owner.account.username}
+                      className="avatar"
+                    />
+                  ) : (
+                    <img src={noUserImg} alt="" className="avatar" />
+                  )}
+                  <span>{offer.owner.account.username}</span>
+                </div>
+                <div className="product-image-container">
+                  <img
+                    src={offer.product_image.secure_url}
+                    alt={offer.product_name}
+                  />
+                </div>
+                <div className="product-infos">
+                  <p className="home-price">{offer.product_price} €</p>
+                  <p>{offer.product_details[2].ÉTAT}</p>
+                  <p>{offer.product_details[1].TAILLE}</p>
+                  <p>{offer.product_details[0].MARQUE}</p>
+                </div>
+              </article>
+            </Link>
+          );
+        })}
+      </section>
+    </main>
+  );
+};
+
+export default Home;

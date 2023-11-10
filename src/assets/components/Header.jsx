@@ -1,35 +1,35 @@
 import SearchBar from "./SearchBar";
-import Switch from "react-switch";
+// import Switch from "react-switch";
 
 const Header = ({ logo, textBtn1, textBtn2, textBtn3 }) => {
   return (
-    <header>
-      <section className="top-header container">
-        <div className="img-container">
+    <header className="container">
+      <section className="top-header ">
+        <div className="logo-container">
           <img src={logo} alt="logo" />
         </div>
         <SearchBar
           className="search-bar-container"
           placeholder="Rechercher des articles"
         />
-        <div>
-          <button>{textBtn1}</button>
-          <button>{textBtn2}</button>
+        <div className="header-btn-container">
+          <button className="login-signup-btns">{textBtn1}</button>
+          <button className="login-signup-btns">{textBtn2}</button>
         </div>
         <div>
-          <button>{textBtn3}</button>
+          <button className="primary-btn">{textBtn3}</button>
         </div>
       </section>
-      <section className="bottom-header container">
+
+      <section className="bottom-header">
         <div>
-          <span>Trier par prix</span>
-          {/* <Switch /> */}
+          <span>Trier par prix :</span>
         </div>
-        <div>
+        <div className="price-filter">
           <span>Prix entre :</span>
           <div>bar</div>
         </div>
-        <div>other filters</div>
+        <span>other filters</span>
       </section>
     </header>
   );

@@ -1,7 +1,12 @@
 :root {
-  --header-height: 5rem;
+  --header-height: 8rem;
   --footer-height: 4rem;
   --main-height: calc(100vh - var(--header-height) - var(--footer-height));
+}
+
+#root {
+  max-width: 100vw;
+  margin: 0 auto;
 }
 
 * {
@@ -17,20 +22,263 @@ body {
 
 .container {
   display: flex;
+  flex-direction: column;
+  margin: 0 auto;
 }
 
+/* HEADER CSS */
+
 header {
-  border: 1px solid red;
+  border: 1px solid lightgrey;
   height: var(--header-height);
+  background-color: white;
+  width: 100vw;
   display: flex;
-  flex-direction: column;
+  padding: 0 7rem;
+}
+
+header section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+  width: 100%;
+}
+
+.logo-container {
+  height: 3.4rem;
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
-main {
-  border: 1px solid blue;
-  height: var(--main-height);
+.logo-container img {
+  object-fit: cover;
 }
+
+.search-bar-container {
+  font-family: "Poppins", sans-serif;
+  background-color: #f5f6f7;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  font-family: "Poppins", sans-serif;
+  background-color: #f5f6f7;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  font-weight: 300;
+  height: 2.5rem;
+  outline: none;
+  padding-left: 1rem;
+  width: 35rem;
+  flex: 3;
+}
+
+.search-icon {
+  margin-left: 1.4rem;
+}
+
+.header-btn-container {
+  display: flex;
+}
+
+button {
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 0.77rem;
+  font-weight: 300;
+  transition-duration: 0.3s;
+}
+
+.login-signup-btns {
+  background-color: white;
+  border: 1px solid #2cb1ba;
+  color: #2cb1ba;
+  height: 2rem;
+  width: 7rem;
+  margin-right: 0.7rem;
+}
+
+.login-signup-btns:hover {
+  background-color: #2cb1ba;
+  border: 1px solid #2cb1ba;
+  color: white;
+}
+
+.primary-btn {
+  background-color: #2cb1ba;
+  border: 1px solid #2cb1ba;
+  color: white;
+  height: 2rem;
+  padding: 0 0.7rem;
+}
+
+.primary-btn:hover {
+  background-color: #007781;
+  border: 1px solid #007781;
+  color: white;
+}
+
+.bottom-header span {
+  font-size: 0.77rem;
+}
+
+.price-filter {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* .hero-container {
+  background-image: url("https://res.cloudinary.com/dwpznxjrt/image/upload/v1699631066/vinted/hereobanner_hpn1xw.jpg");
+  background-size: cover;
+  background-position: 50%;
+  height: 100px;
+} */
+
+/* .hero-container img {
+  height: 40rem;
+  object-fit: cover;
+} */
+
+main {
+  /* border: 1px solid blue; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 7rem;
+  width: 100vw;
+}
+
+/* HOME CSS */
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 2rem;
+  row-gap: 1.2rem;
+}
+
+.card {
+  cursor: pointer;
+}
+
+.card-user {
+  display: flex;
+  align-items: center;
+  padding: 0.7rem 0.2rem;
+}
+
+.card-user img {
+  height: 1.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 0.7rem;
+}
+
+.card-user span {
+  color: #999;
+  font-size: 0.7rem;
+  font-weight: 300;
+}
+
+a {
+  text-decoration: none;
+}
+
+.product-image-container img {
+  height: 20rem;
+  width: 14rem;
+  object-fit: cover;
+}
+
+.product-infos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.3rem;
+  padding: 0.7rem;
+}
+
+.product-infos p {
+  color: #757575;
+  font-size: 0.7rem;
+  font-weight: 300;
+}
+
+p.home-price {
+  font-size: 0.8rem;
+  color: black;
+}
+
+/* SINGLE PRODUCT CSS */
+.background-single-prod-page {
+  background-color: #eaedee;
+}
+
+.single-product-container {
+  display: flex;
+  justify-content: space-around;
+  width: 80rem;
+  height: 40rem;
+}
+
+.single_product_img_container {
+  width: 50%;
+}
+
+.single_product_img_container img {
+  object-fit: contain;
+  border-radius: 5px;
+  height: 100%;
+}
+
+.product-details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 50%;
+}
+
+.details-container {
+  background-color: white;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: space-between; */
+  height: 40rem;
+  width: 25rem;
+  padding: 2.4rem 3rem;
+}
+
+.product-details {
+  flex: 1;
+  width: 100%;
+}
+.user-infos-container {
+  flex: 1;
+  width: 100%;
+}
+
+.go-to-cart-btn {
+  flex: 1;
+  width: 100%;
+}
+
+.price {
+  color: #111;
+  font-size: 24px;
+  line-height: 32px;
+}
+/* FOOTER CSS */
 
 footer {
   border: 1px solid green;
