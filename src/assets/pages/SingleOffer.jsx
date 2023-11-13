@@ -25,9 +25,11 @@ const SingleOffer = ({ noUserImg }) => {
   }, [id]);
 
   return isLoading ? (
-    <p>Product infos are loading...</p>
+    <main>
+      <span className="loading-message">Product infos are loading...</span>
+    </main>
   ) : (
-    <main className="background-single-prod-page">
+    <main className="grey-background">
       <div className="single-product-container">
         <div className="single_product_img_container">
           <img
@@ -39,34 +41,36 @@ const SingleOffer = ({ noUserImg }) => {
           <div className="details-container">
             <div className="product-details">
               <p className="price">{data.product_price} €</p>
-              {data.product_details.map((detail) => {
-                const keys = Object.keys(detail);
-                const key = keys[0];
-                return (
-                  <p key={key}>
-                    <span>{key}</span> <span>{detail[key]}</span>
-                  </p>
-                );
-              })}
-            </div>
-
-            <div className="user-infos-container">
-              <div className="user-infos">
-                {data.owner.account.avatar ? (
-                  <img
-                    src={data.owner.account.avatar.secure_url}
-                    alt={data.owner.account.username}
-                    className="avatar"
-                  />
-                ) : (
-                  <img src={noUserImg} alt="" className="avatar" />
-                )}
-                <span>{data.owner.account.username}</span>
+              <div>
+                {data.product_details.map((detail) => {
+                  const keys = Object.keys(detail);
+                  const key = keys[0];
+                  return (
+                    <p key={key}>
+                      <span className="">{key}</span> <span>{detail[key]}</span>
+                    </p>
+                  );
+                })}
               </div>
             </div>
-            <div className="go-to-cart-btn">
-              <button className="primary-btn">Acheter</button>{" "}
+            {/* <div className="infos-divider"></div> */}
+            <div className="product-description-container">
+              <p className="product-name">{data.product_name}</p>
+              <p className="product-description">{data.product_description}</p>
             </div>
+            <div className="user-infos">
+              {data.owner.account.avatar ? (
+                <img
+                  src={data.owner.account.avatar.secure_url}
+                  alt={data.owner.account.username}
+                  className="avatar"
+                />
+              ) : (
+                <img src={noUserImg} alt="" className="avatar" />
+              )}
+              <span>{data.owner.account.username}</span>
+            </div>
+            <button className="go-to-cart-btn">Acheter</button>
           </div>
         </div>
       </div>

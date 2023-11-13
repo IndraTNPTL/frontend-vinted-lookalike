@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-const Home = ({ noUserImg }) => {
+const Home = ({ search, noUserImg }) => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
@@ -10,7 +10,7 @@ const Home = ({ noUserImg }) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://lereacteur-vinted-api.herokuapp.com/offers"
+          `https://lereacteur-vinted-api.herokuapp.com/offers?title=${search}`
         );
         setData(response.data);
         setIsLoading(false);
@@ -19,10 +19,14 @@ const Home = ({ noUserImg }) => {
       }
     };
     fetchData();
-  }, []);
+  }, [search]);
 
   return isLoading ? (
-    <span>Your Vinted lookalike is loading... ⏳</span>
+    <main>
+      <span className="loading-message">
+        Your Vinted lookalike is loading... ⏳
+      </span>
+    </main>
   ) : (
     <main className="container">
       <section className="cards-container">
@@ -35,10 +39,9 @@ const Home = ({ noUserImg }) => {
                     <img
                       src={offer.owner.account.avatar.secure_url}
                       alt={offer.owner.account.username}
-                      className="avatar"
                     />
                   ) : (
-                    <img src={noUserImg} alt="" className="avatar" />
+                    <img src={noUserImg} alt="" />
                   )}
                   <span>{offer.owner.account.username}</span>
                 </div>
