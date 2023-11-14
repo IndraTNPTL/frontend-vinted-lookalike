@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
-const SingleOffer = ({ noUserImg }) => {
+const SingleOffer = ({ noUserImg, token }) => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
   const params = useParams();
   const id = params.id;
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -70,7 +72,25 @@ const SingleOffer = ({ noUserImg }) => {
               )}
               <span>{data.owner.account.username}</span>
             </div>
-            <button className="go-to-cart-btn">Acheter</button>
+            {token ? (
+              <button
+                className="go-to-cart-btn"
+                onClick={() => {
+                  navigate("/payment");
+                }}
+              >
+                Acheter
+              </button>
+            ) : (
+              <button
+                className="go-to-cart-btn"
+                onClick={() => {
+                  navigate("/login");
+                }}
+              >
+                Acheter
+              </button>
+            )}
           </div>
         </div>
       </div>

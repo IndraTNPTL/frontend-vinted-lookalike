@@ -1,5 +1,5 @@
 :root {
-  --header-height: 8rem;
+  --header-height: 5rem;
   --footer-height: 4rem;
   --main-height: calc(100vh - var(--header-height) - var(--footer-height));
 }
@@ -23,6 +23,8 @@ body {
 .container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 0 auto;
 }
 
@@ -140,6 +142,26 @@ button {
   color: white;
 }
 
+.primary-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #007781;
+  border-radius: 5px;
+  border: 1px solid #007781;
+  color: white;
+  height: 2.7rem;
+  width: 100%;
+  padding: 0 0.7rem;
+  font-size: 1rem;
+}
+
+.primary-links:hover {
+  background-color: #2cb1ba;
+  border: 1px solid #2cb1ba;
+  color: white;
+}
+
 .logout {
   background-color: #c2165b;
   border: 1px solid #c2165b;
@@ -181,8 +203,9 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10rem 7rem;
+  padding: 7rem 7rem;
   width: 100vw;
+  /* min-height: 100vw; */
 }
 
 /* HOME CSS */
@@ -240,6 +263,10 @@ a {
   color: #757575;
   font-size: 0.7rem;
   font-weight: 300;
+}
+
+.product-name {
+  font-weight: 500;
 }
 
 p.home-price {
@@ -374,6 +401,7 @@ p.home-price {
   width: calc(100% - 2rem);
   padding: 0 0.7rem;
   font-size: 1rem;
+  transition-duration: 0.3s;
 }
 
 .go-to-cart-btn:hover {
@@ -387,19 +415,217 @@ p.home-price {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 80%;
   gap: 2rem;
+  font-size: 1.7rem;
+  font-weight: 300;
 }
 
-form {
+.form-container h1 {
+  margin-top: 1rem;
+  font-size: 1.7rem;
+  font-weight: 300;
+}
+
+.light-forms {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2rem;
+  outline: none;
+}
+
+.primary-forms input {
+  cursor: pointer;
+  border: none;
+  border-bottom: 1px solid #fcced3;
+  height: 3rem;
+  width: 17rem;
+}
+
+input::placeholder {
+  color: rgb(151, 151, 151);
+  font-family: "Poppins", sans-serif;
+}
+
+.newsletter-checkbox-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 17rem;
+  gap: 0.2rem;
+}
+
+.newsletter-checkbox-container > div {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+input[type="checkbox"] {
+  width: 1.7rem;
+  cursor: pointer;
+}
+
+input[type="submit"] {
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+  background-color: #007781;
+  border-radius: 5px;
+  border: 1px solid #007781;
+  color: white;
+  height: 2.7rem;
+  width: 100%;
+  padding: 0 0.7rem;
+  font-size: 1rem;
+}
+
+input[type="submit"]:hover {
+  background-color: #2cb1ba;
+  border: 1px solid #2cb1ba;
+  color: white;
+}
+
+.TermsandConditions-title {
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+.TermsandConditions-subtext {
+  font-size: 0.7rem;
+  color: #757575;
+  line-height: 1.2;
+}
+
+.login-or-signup-text {
+  font-size: 0.7rem;
+  color: #2cb1ba;
+  font-weight: 400;
+}
+
+.login-or-signup-text:hover {
+  text-decoration: underline wavy;
+  text-underline-offset: 0.2rem;
+}
+
+/* PUBLISH PAGE */
+
+h4 {
+  font-size: 1rem;
+}
+
+.upload-img-container {
+  background-color: white;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+#picture-input {
+  font-family: "Poppins", sans-serif;
+}
+
+.picture-upload-preview {
+  height: 10rem;
+}
+
+.secondary-forms {
+  display: flex;
+  flex-direction: column;
+  width: 70vw;
+  gap: 2rem;
+}
+
+.text-inputs-section {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.text-input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
+  min-height: 5rem;
+}
+
+.text-inputs-section > .text-input:not(:last-child) {
+  border-bottom: 1px solid #ebedee;
+}
+
+.text-input > h4 {
+  flex: 2;
+}
+
+.text-input > input {
+  font-family: "Poppins", sans-serif;
+  background-color: #f5f6f7;
+  padding-left: 1rem;
+  font-size: 0.9rem;
+  font-weight: 300;
+  height: 2.5rem;
+  border: none;
+  flex: 2;
+}
+
+.text-input > textarea {
+  font-family: "Poppins", sans-serif;
+  background-color: #f5f6f7;
+  padding-left: 1rem;
+  font-size: 0.9rem;
+  font-weight: 300;
+  border: none;
+  height: 7rem;
+  flex: 2;
+}
+
+.text-input > select {
+  font-family: "Poppins", sans-serif;
+  background-color: #f5f6f7;
+  padding-left: 1rem;
+  font-size: 0.9rem;
+  font-weight: 300;
+  border: none;
+  flex: 2;
+}
+
+.upload-avatar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.avatar-upload-preview {
+  border-radius: 50%;
+  height: 7rem;
+  width: 7rem;
+  object-fit: cover;
+  display: block;
+}
+
+.avatar-title {
+  color: #757575;
 }
 
 /* FOOTER CSS */
 
 footer {
-  border: 1px solid green;
   height: var(--footer-height);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.7rem;
+  color: #757575;
+}
+
+/* 404 NOT FOUND */
+
+.NOTFOUND-img {
+  height: 17rem;
+  margin: 3rem;
 }

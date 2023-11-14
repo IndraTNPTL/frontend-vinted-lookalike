@@ -24,8 +24,8 @@ const Login = ({ handleToken }) => {
       console.log(response.data);
 
       handleToken(response.data.token);
-      alert("Vous êtes maintenant connecté 🎉");
       navigate("/");
+      alert("Vous êtes maintenant connecté 🎉");
     } catch (error) {
       console.log(error);
       if (error.response.data.message === "Unauthorized") {
@@ -42,7 +42,7 @@ const Login = ({ handleToken }) => {
     <main>
       <div className="form-container">
         <h1>Se connecter</h1>
-        <form onSubmit={handleSubmit}>
+        <form className="light-forms primary-forms" onSubmit={handleSubmit}>
           {errorMessage && <p className="error-message">{errorMessage}</p>}
           <input
             type="email"
@@ -61,7 +61,7 @@ const Login = ({ handleToken }) => {
           />
           <input type="submit" value="Se connecter" />
         </form>
-        <Link to="/signup">
+        <Link to="/signup" className="login-or-signup-text">
           😯 Tu n'as pas encore de compte ? Inscris-toi ici !
         </Link>
       </div>

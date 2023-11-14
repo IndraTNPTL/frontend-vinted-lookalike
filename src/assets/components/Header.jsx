@@ -48,7 +48,7 @@ const Header = ({ logo, token, handleToken, search, setSearch }) => {
           {token ? (
             <button
               onClick={() => {
-                navigate("/");
+                navigate("/publish");
               }}
               className="primary-btn"
             >
@@ -66,7 +66,7 @@ const Header = ({ logo, token, handleToken, search, setSearch }) => {
           )}
         </div>
       </section>
-      {location.pathname !== "/signup" && location.pathname !== "/login" && (
+      {/* {location.pathname !== "/signup" && location.pathname !== "/login" && (
         <section className="bottom-header">
           <div>
             <span>Trier par prix :</span>
@@ -77,7 +77,7 @@ const Header = ({ logo, token, handleToken, search, setSearch }) => {
           </div>
           <span>other filters</span>
         </section>
-      )}
+      )} */}
     </header>
   );
 };
